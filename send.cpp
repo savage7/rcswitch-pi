@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
      for pin mapping of the raspberry pi GPIO connector
      */
     int PIN = 0;
-    unsigned long systemCode = argv[1];
+    unsigned long systemCode = atol(argv[1]);
     int unitCode = atoi(argv[2]);
     int command  = atoi(argv[3]);
     
