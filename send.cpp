@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
      for pin mapping of the raspberry pi GPIO connector
      */
     int PIN = 0;
-    char* systemCode = argv[1];
+    unsigned long systemCode = argv[1];
     int unitCode = atoi(argv[2]);
     int command  = atoi(argv[3]);
     
@@ -25,21 +25,18 @@ int main(int argc, char *argv[]) {
 	//RCSwitch mySwitch = RCSwitch();
 	//mySwitch.enableTransmit(PIN);
     
-    NewRemoteTransmitter transmitter(9387506, 0, 0);
-    transmitter.sendUnit(0, 1);
-/*
+    NewRemoteTransmitter transmitter(systemCode, PIN, 0);
     
     switch(command) {
         case 1:
-            mySwitch.switchOn(systemCode, unitCode);
+            transmitter.sendUnit(unitCode, 1);
             break;
         case 0:
-            mySwitch.switchOff(systemCode, unitCode);
+            transmitter.sendUnit(unitCode, 0);
             break;
         default:
             printf("command[%i] is unsupported\n", command);
             return -1;
     }
- */
 	return 0;
 }
