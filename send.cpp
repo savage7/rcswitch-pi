@@ -3,11 +3,12 @@
  Command is 0 for OFF and 1 for ON
  */
 
-#include "RCSwitch.h"
+#include "NewRemoteTransmitter.h"
 #include <stdlib.h>
 #include <stdio.h>
 
 int main(int argc, char *argv[]) {
+    
     
     /*
      output PIN is hardcoded for testing purposes
@@ -24,6 +25,10 @@ int main(int argc, char *argv[]) {
 	RCSwitch mySwitch = RCSwitch();
 	mySwitch.enableTransmit(PIN);
     
+    NewRemoteTransmitter transmitter(9387506, 0, 0);
+    transmitter.sendUnit(0, 1);
+/*
+    
     switch(command) {
         case 1:
             mySwitch.switchOn(systemCode, unitCode);
@@ -35,5 +40,6 @@ int main(int argc, char *argv[]) {
             printf("command[%i] is unsupported\n", command);
             return -1;
     }
+ */
 	return 0;
 }
