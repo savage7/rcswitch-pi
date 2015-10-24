@@ -1,7 +1,7 @@
 all: send
 
-send: NewRemoteTransmitter.o send.o
+send: NewRemoteTransmitter.o send-intertechno.o
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $+ -o $@ -lwiringPi
 
 clean:
-	$(RM) *.o send
+	$(RM) *.o send-intertechno
